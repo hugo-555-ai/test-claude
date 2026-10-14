@@ -169,7 +169,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
   });
 
   // Text mecanografiat
-  var words=['Contacte personal','Correu · Telegram','Notícies filosofades amb IA'],wi=0,ci=0,del=false,el=$('#typed');
+  var words=['Contacte personal','Correu electrònic','Telegram','Notícies filosofades amb IA'],wi=0,ci=0,del=false,el=$('#typed');
   if(reduce){el.textContent=words[0]}else(function tick(){
     var w=words[wi];ci+=del?-1:1;el.textContent=w.slice(0,ci);
     var d=del?35:75;
