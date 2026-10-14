@@ -108,7 +108,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
 #grime{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.42;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .4  0 0 0 0 .3  0 0 0 1.4 -.35'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
   url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='.004 .25' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 2.2 -1.05'/></filter><rect width='100%25' height='100%25' filter='url(%23s)'/></svg>");}
-h1{filter:url(#grunge)}
+h1{filter:url(#grunge) blur(.6px)}
 </style>
 </head>
 <body>
@@ -165,6 +165,10 @@ h1{filter:url(#grunge)}
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $=function(s){return document.querySelector(s)};
+  // Tres letras del nombre parpadean, elegidas al azar en cada carga
+  var lt=document.querySelectorAll('h1 i'),pk=[];lt.forEach(function(n){n.className='';n.style.animationDelay=''});
+  while(pk.length<3){var k=Math.floor(Math.random()*lt.length);if(pk.indexOf(k)<0)pk.push(k)}
+  pk.forEach(function(k){lt[k].className='fl';lt[k].style.animationDelay=(-Math.random()*12)+'s'});
   var qd=$('#qrdeco');if(qd){var NS='http://www.w3.org/2000/svg';for(var r=0;r<12;r++)for(var c=0;c<12;c++){if(Math.random()<.45)continue;var q=document.createElementNS(NS,'rect');q.setAttribute('x',c*16+4);q.setAttribute('y',r*16+4);q.setAttribute('width',12);q.setAttribute('height',12);q.setAttribute('rx',2);q.setAttribute('class','cell');q.setAttribute('fill','currentColor');q.style.animationDuration=(4+Math.random()*7)+'s';q.style.animationDelay=(-Math.random()*20)+'s';qd.appendChild(q)}}
   if(reduce)document.querySelectorAll('animateMotion').forEach(function(n){n.remove()});
 
