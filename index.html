@@ -103,10 +103,15 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
 @keyframes glyph{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-150px);opacity:0}}
 .cell{animation:cell ease-in-out infinite}
 @keyframes cell{0%,100%{opacity:.1}50%{opacity:1}}
+#shade{background:radial-gradient(900px 520px at 12% 92%,rgba(120,84,36,.28),transparent 60%),radial-gradient(1000px 600px at 90% 8%,rgba(70,60,40,.22),transparent 60%),radial-gradient(1200px 700px at 50% 0%,transparent,rgba(5,6,10,.75) 60%,var(--bg) 100%)}
+#grime{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.42;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .4  0 0 0 0 .3  0 0 0 1.4 -.35'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='.004 .25' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 2.2 -1.05'/></filter><rect width='100%25' height='100%25' filter='url(%23s)'/></svg>");}
+h1{filter:url(#grunge)}
 </style>
 </head>
 <body>
-<div id="photo"></div><div id="shade"></div><canvas id="fx"></canvas><div id="glow"></div>
+<div id="grime"></div><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="grunge" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></svg><div id="photo"></div><div id="shade"></div><canvas id="fx"></canvas><div id="glow"></div>
 
 <main>
 <header>
