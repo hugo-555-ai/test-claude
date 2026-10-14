@@ -5,7 +5,7 @@
 <title>Hugo Ballesteros Mañes - Contacte personal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="contacte,Hugo,Ballesteros,Mañes">
-<meta name="description" content="Pàgina amb informació per posar-te en contacte amb Hugo Ballesteros Mañes. Correu electrònic, Telegram i signatura PGP.">
+<meta name="description" content="Pàgina amb informació per posar-te en contacte amb Hugo Ballesteros Mañes. Correu electrònic i Telegram.">
 <meta name="author" content="Hugo Ballesteros Mañes">
 <meta name="theme-color" content="#05060a">
 <meta property="og:title" content="Hugo Ballesteros Mañes">
@@ -126,16 +126,6 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
   </article>
 
   <article class="card reveal wide">
-    <h2>Signatura electrònica PGP</h2>
-    <div class="val">9A12 63AF 5868 1188 61DB CBE4 1F56 8EE1 2807 AC92</div>
-    <p class="hint">(s'accepta WoT key crossigning)</p>
-    <div class="row">
-      <button type="button" data-copy="9A12 63AF 5868 1188 61DB CBE4 1F56 8EE1 2807 AC92">Copia l'empremta</button>
-      <a class="btn" href="hugo.asc" title="Aquesta és la meva signatura electrònica">Descarrega la clau</a>
-    </div>
-  </article>
-
-  <article class="card reveal wide">
     <h2>Actualitat filosofada</h2>
     <nav class="news">
       <a href="/filonoticies-ca/" title="FiloNotícies: reflexions filosòfiques sobre les notícies del dia anterior"><b>Català</b><small>FiloNotícies</small></a>
@@ -148,7 +138,6 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
     <h2>Codis QR</h2>
     <div class="qrs">
       <figure class="qr"><img id="qrm" alt="Codi QR del correu electrònic" src="qrmailto.png" title="Envia'm un correu electrònic">Correu</figure>
-      <figure class="qr"><a href="hugo.asc"><img alt="Codi QR de la signatura electrònica PGP" src="qrpgp.png"></a>PGP</figure>
     </div>
   </article>
 </section>
@@ -180,7 +169,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
   });
 
   // Text mecanografiat
-  var words=['Contacte personal','Correu · Telegram · PGP','Reflexions filosofades'],wi=0,ci=0,del=false,el=$('#typed');
+  var words=['Contacte personal','Correu · Telegram','Reflexions filosofades'],wi=0,ci=0,del=false,el=$('#typed');
   if(reduce){el.textContent=words[0]}else(function tick(){
     var w=words[wi];ci+=del?-1:1;el.textContent=w.slice(0,ci);
     var d=del?35:75;
