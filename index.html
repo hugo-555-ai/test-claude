@@ -93,6 +93,17 @@ button:hover,.btn:hover{background:rgba(255,255,255,.16);border-color:var(--b);t
 .toast.on{transform:translate(-50%,0)}
 footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+.deco{position:absolute;inset:0;width:100%;height:100%;opacity:.3;pointer-events:none;z-index:0}
+.card>*:not(.deco){position:relative;z-index:1}
+.drift{animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateY(-6px)}to{transform:translateY(8px)}}
+.trail{animation:trail 60s linear infinite}
+@keyframes trail{to{stroke-dashoffset:-240}}
+.glyph{animation:glyph 24s linear infinite}
+.g2{animation-delay:-5s}.g3{animation-delay:-10s}.g4{animation-delay:-15s}.g5{animation-delay:-19s}
+@keyframes glyph{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-150px);opacity:0}}
+.cell{animation:cell ease-in-out infinite}
+@keyframes cell{0%,100%{opacity:.1}50%{opacity:1}}
 </style>
 </head>
 <body>
@@ -107,7 +118,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
 </header>
 
 <section class="grid">
-  <article class="card reveal">
+  <article class="card reveal"><svg class="deco" style="color:var(--b)" viewBox="0 0 320 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><g class="drift"><rect x="200" y="60" width="104" height="70" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M200 60 L252 98 L304 60" fill="none" stroke="currentColor" stroke-width="1.5"/></g><path class="trail" d="M10 170 C 70 120, 120 190, 185 120" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 8"/></svg>
     <h2>Correu electrònic</h2>
     <div class="val" id="mail">hugo at hugo.cat</div>
     <div class="row">
@@ -116,7 +127,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
     </div>
   </article>
 
-  <article class="card reveal">
+  <article class="card reveal"><svg class="deco" style="color:var(--a)" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-10 160 C 80 40, 200 220, 330 50" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 7"/><path d="M0 0 L22 9 L14 24 L11 15 Z" fill="currentColor"><animateMotion dur="40s" repeatCount="indefinite" rotate="auto" path="M-10 160 C 80 40, 200 220, 330 50"/></path></svg>
     <h2>Telegram</h2>
     <div class="val">@hugoballesteros</div>
     <div class="row">
@@ -125,7 +136,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
     </div>
   </article>
 
-  <article class="card reveal wide">
+  <article class="card reveal wide"><svg class="deco" style="color:var(--c)" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" font-family="Georgia,serif" font-size="18"><text class="glyph" x="30" y="170" fill="currentColor">?</text><text class="glyph g2" x="90" y="190" fill="currentColor">λόγος</text><text class="glyph g3" x="170" y="180" fill="currentColor">∴</text><text class="glyph g4" x="240" y="195" fill="currentColor">IA</text><text class="glyph g5" x="130" y="150" fill="currentColor">πάντα ῥεῖ</text></svg>
     <h2>Notícies filosofades amb IA</h2>
     <nav class="news">
       <a href="/filonoticies-ca/" title="FiloNotícies: reflexions filosòfiques sobre les notícies del dia anterior"><b>Català</b><small>FiloNotícies</small></a>
@@ -134,7 +145,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
     </nav>
   </article>
 
-  <article class="card reveal wide">
+  <article class="card reveal wide"><svg class="deco" id="qrdeco" style="color:var(--b);opacity:.14" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"></svg>
     <h2>Codis QR</h2>
     <div class="qrs">
       <figure class="qr"><img id="qrm" alt="Codi QR del correu electrònic" src="qrmailto.png" title="Envia'm un correu electrònic">Correu</figure>
@@ -149,6 +160,8 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $=function(s){return document.querySelector(s)};
+  var qd=$('#qrdeco');if(qd){var NS='http://www.w3.org/2000/svg';for(var r=0;r<12;r++)for(var c=0;c<12;c++){if(Math.random()<.45)continue;var q=document.createElementNS(NS,'rect');q.setAttribute('x',c*16+4);q.setAttribute('y',r*16+4);q.setAttribute('width',12);q.setAttribute('height',12);q.setAttribute('rx',2);q.setAttribute('class','cell');q.setAttribute('fill','currentColor');q.style.animationDuration=(8+Math.random()*14)+'s';q.style.animationDelay=(-Math.random()*20)+'s';qd.appendChild(q)}}
+  if(reduce)document.querySelectorAll('animateMotion').forEach(function(n){n.remove()});
 
   // Correu muntat en JS (anti-spam)
   var addr=['hugo','hugo.cat'].join('@');
