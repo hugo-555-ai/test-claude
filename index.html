@@ -47,7 +47,8 @@ header{min-height:92vh;display:flex;flex-direction:column;justify-content:center
 .kicker{font-size:clamp(.9rem,2vw,1.1rem);letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(2.6rem,11vw,7.5rem);line-height:.95;font-weight:800;letter-spacing:-.04em;
   color:#d6e6f5;text-shadow:0 0 3px #eef6fd,0 0 10px #4f86c6,0 0 22px #4f86c6,0 0 46px #4f86c6,0 0 90px #2b5f96}
-h1 i{font-style:normal;display:inline-block;animation:neon 5s infinite}
+h1 i{font-style:normal;display:inline-block}
+h1 i.fl{animation:neon 12s infinite}
 @keyframes neon{0%,17%,21%,24%,58%,61%,100%{opacity:1}18%,23%,59%{opacity:.35}19%,60%{opacity:.9}}
 h1 span{display:block}
 .sub{color:var(--muted);font-size:clamp(1rem,2.4vw,1.3rem);min-height:1.6em}
@@ -116,7 +117,7 @@ h1{filter:url(#grunge)}
 <main>
 <header>
   <p class="kicker">Estàs a la pàgina de contacte d'en</p>
-  <h1><span><i style="animation-duration:4.59s;animation-delay:-1.06s">H</i><i style="animation-duration:6.00s;animation-delay:-0.51s">U</i><i style="animation-duration:5.50s;animation-delay:-2.56s">G</i><i style="animation-duration:3.45s;animation-delay:-3.55s">O</i></span><span><i style="animation-duration:3.36s;animation-delay:-3.04s">B</i><i style="animation-duration:3.50s;animation-delay:-0.63s">A</i><i style="animation-duration:5.03s;animation-delay:-5.79s">L</i><i style="animation-duration:3.73s;animation-delay:-1.56s">L</i><i style="animation-duration:5.90s;animation-delay:-6.63s">E</i><i style="animation-duration:5.68s;animation-delay:-2.78s">S</i><i style="animation-duration:7.40s;animation-delay:-0.33s">T</i><i style="animation-duration:6.89s;animation-delay:-2.03s">E</i><i style="animation-duration:3.82s;animation-delay:-0.82s">R</i><i style="animation-duration:4.53s;animation-delay:-5.71s">O</i><i style="animation-duration:3.98s;animation-delay:-4.07s">S</i></span><span><i style="animation-duration:5.95s;animation-delay:-2.61s">M</i><i style="animation-duration:5.56s;animation-delay:-0.44s">A</i><i style="animation-duration:3.46s;animation-delay:-1.44s">Ñ</i><i style="animation-duration:6.13s;animation-delay:-2.99s">E</i><i style="animation-duration:4.55s;animation-delay:-4.10s">S</i></span></h1>
+  <h1><span><i>H</i><i>U</i><i>G</i><i>O</i></span><span><i>B</i><i>A</i><i>L</i><i>L</i><i>E</i><i>S</i><i>T</i><i>E</i><i>R</i><i>O</i><i class="fl" style="animation-delay:-5.42s">S</i></span><span><i>M</i><i>A</i><i class="fl" style="animation-delay:-10.26s">Ñ</i><i>E</i><i class="fl" style="animation-delay:-2.28s">S</i></span></h1>
   <p class="sub" id="typed" aria-live="off"></p>
   <div class="scroll" aria-hidden="true"></div>
 </header>
